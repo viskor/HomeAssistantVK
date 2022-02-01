@@ -52,7 +52,7 @@ blueprint:
           max: 25
           mode: slider
     device_identifier:
-      name: speaker to notify
+      name: speaker to no5tify
       description: >
         The device to receive the notification; it needs to run the official 
         Home Assistant app to receive notifications.
