@@ -58,7 +58,7 @@ blueprint:
         Home Assistant app to receive notifications.
       selector: 
         device:
-          integration: mobile_app
+          integration: tts_media_players
 
 # We will have two triggers, for the two different reminders. 
 # However, a reminder will be ignored if the door or window is already closed by then. 
