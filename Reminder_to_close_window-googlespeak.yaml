@@ -27,7 +27,7 @@ blueprint:
       default: 10
       selector: 
         number:
-          min: 1
+          min: 0
           step: 1
           max: 60
           mode: slider
@@ -37,7 +37,7 @@ blueprint:
       default: 15
       selector: 
         number:
-          min: 1
+          min: 0
           step: 1
           max: 60
           mode: slider
@@ -71,7 +71,7 @@ trigger:
   for:
     hours: 0
     minutes: !input first_timer
-    seconds: 0
+    seconds: 10
 - platform: state
   entity_id: !input contact_sensor
   from: 'off'
@@ -79,7 +79,7 @@ trigger:
   for:
     hours: 0
     minutes: !input second_timer
-    seconds: 0
+    seconds: 10
 
 # Two conditions:
 # 1. The door or window should still be open. 
@@ -98,8 +98,8 @@ action:
 - service: tts.google_translate_say
   data:
     entity_id: !input speaker
-    message: "Que la force soit avec toi {{trigger.to_state.attributes.friendly_name}}"
+    message: "Que la force soit avec toi"
     language: "fr"
-  
+#  {{trigger.to_state.attributes.friendly_name}}
 
 mode: single
