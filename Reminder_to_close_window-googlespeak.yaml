@@ -99,7 +99,7 @@ action:
 - service: tts.google_translate_say
   data:
     entity_id: !input speaker
-    message: "Que la force soit avec toi {{trigger.to_state.attributes.friendly_name}}"
+    message: "Fenetre ouverte {{trigger.to_state.attributes.friendly_name}}"
     language: "fr"
 #  {{trigger.to_state.attributes.friendly_name}}
 
