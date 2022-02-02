@@ -83,7 +83,7 @@ trigger:
     seconds: 10
 
 # Two conditions:
-# 1. The door or window should still be open. 
+# 1. The door or window should still be open.  
 # 2. The temperature reading must be below the set value. 
 condition:
 - condition: state
