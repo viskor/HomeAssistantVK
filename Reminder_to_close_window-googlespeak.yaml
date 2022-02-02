@@ -12,7 +12,7 @@
 # requierement : Home Meteorologisk institutt (Met.no) > name of house : maison (Line 93)
 
 blueprint:
-  name: Speaker to Close a Window 
+  name: Speaker to Close a Window (VK)
   description: speak to close windows if it is cold outside
   domain: automation
   input: 
@@ -53,9 +53,9 @@ blueprint:
           max: 25
           mode: slider
     speaker:
-      name: speaker to no5tify
+      name: speaker to notify
       description: >
-        The device to receive the notification; it needs to run the official 
+        The speaker to receive the notification; it needs to run the official 
         Home Assistant app to receive notifications.
       selector: 
         entity:
