@@ -16,6 +16,11 @@ blueprint:
   description: speak to close windows if it is cold outside
   domain: automation
   input: 
+    repeat:
+      name: repeat
+      description : 'repeat the automation'
+      selector:
+        boolean:
     contact_sensor: 
       name: Contact Sensor
       description: 'The window or door sensor that triggers the automation.'
