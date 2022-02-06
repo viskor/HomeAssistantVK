@@ -111,6 +111,7 @@ action:
     language: "fr"
 #  {{trigger.to_state.attributes.friendly_name}}
 
+>
 {% if !input repeat == "true" %}
   Mode: restart
 {% else %}
