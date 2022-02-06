@@ -1,7 +1,7 @@
 #
 # Home Assistant Automation Blueprint
 #
-# Sends two notifications on speaker to close a window or door after opening it, 
+# Sends two notifications on speaker to close a window after opening it, 
 # if the temperature outside is below a certain degree. 
 #
 # Revision 2 (with repeat mode)
@@ -10,6 +10,7 @@
 # base from https://github.com/home-IoT/hass-blueprints/blob/main/reminder_to_close_window.yaml
 #
 # requierement : Home Meteorologisk institutt (Met.no) > name of house : maison (Line 93)
+# now: only windows mode
 
 blueprint:
   name: VK Speaker to Close a Window
