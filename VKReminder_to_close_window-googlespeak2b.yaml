@@ -98,12 +98,9 @@ action:
         - delay:
           milliseconds: 1000
       until:
-            # Did it work?
-            - condition: state
-              entity_id: !input contact_sensor
-              state: "off"
-            
-- 
-#  {{trigger.to_state.attributes.friendly_name}}
+         # Did it work?
+         - condition: state
+            entity_id: !input contact_sensor
+            state: "off"
 
 Mode: single
