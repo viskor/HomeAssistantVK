@@ -1,26 +1,25 @@
 blueprint:
-  name: VK Motion-activated Light/power
-  description: Turn on a light/power when motion is detected.
+  name: Motion-activated switch
+  description: Turn on a switch when motion is detected.
   domain: automation
-  source_url: https://github.com/viskor/HomeAssistantVK/blob/main/VKMotion-light-power.yaml
+  source_url: https://github.com/home-assistant/core/blob/dev/homeassistant/components/automation/blueprints/motion_light.yaml
   input:
     motion_entity:
       name: Motion Sensor
       selector:
-          entity:
-            domain: binary_sensor
-            device_class: motion
-    light_target:
-      name: Light
+        entity:
+          domain: binary_sensor
+          device_class: motion
+    switch_target:
+      name: switch
       selector:
         target:
           entity:
-            domain: light
-    
+            domain: switch
     no_motion_wait:
       name: Wait time
       description: Time to leave the light on after last motion is detected.
-      default: 120
+      default: 180
       selector:
         number:
           min: 0
@@ -39,10 +38,9 @@ trigger:
   to: "on"
 
 action:
-  - alias: "Turn on the light"
-    service: light.turn_on
-    target: !input light_target
-
+  - alias: "Turn on the switch"
+    service: switch.turn_on
+    target: !input switch_target
   - alias: "Wait until there is no motion from device"
     wait_for_trigger:
       platform: state
@@ -51,7 +49,6 @@ action:
       to: "off"
   - alias: "Wait the number of seconds that has been set"
     delay: !input no_motion_wait
-  - alias: "Turn off the light"
-    service: light.turn_off
-    target: !input light_target
-
+  - alias: "Turn off the switch"
+    service: switch.turn_off
+    target: !input switch_target
