@@ -84,8 +84,8 @@ condition:
 
 # Send a notification to the speaker device. 
 action:
-  - alias: "Repeat the sequence UNTIL the conditions are true"
-    repeat:
+  - alias: 
+      repeat:
       sequence:
         # Run command that for some reason doesn't always work
         - service: tts.google_translate_say
