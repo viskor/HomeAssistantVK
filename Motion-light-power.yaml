@@ -17,12 +17,12 @@ blueprint:
         target:
           entity:
             domain: light
-    switch_target:
-      name: Switch
-      selector:
-        target:
-          entity:
-            domain: switch        
+ #   switch_target:
+ #     name: Switch
+ #     selector:
+ #       target:
+ #         entity:
+ #           domain: switch        
     
     no_motion_wait:
       name: Wait time
@@ -63,6 +63,6 @@ action:
   - alias: "Turn off the light"
     service: light.turn_off
     target: !input light_target
-  - alias: "Turn off the switch"
-    service: switch.turn_off
-    target: !input switch_target
+ # - alias: "Turn off the switch"
+ #   service: switch.turn_off
+ #   target: !input switch_target
