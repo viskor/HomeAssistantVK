@@ -117,9 +117,8 @@ if:
   then:
     Mode: restart
     
- if:
+if:
   condition:
     !input repeat == "false" 
   then:
     Mode: single
-
