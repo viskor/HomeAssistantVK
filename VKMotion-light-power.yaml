@@ -2,7 +2,7 @@ blueprint:
   name: VK Motion-activated Light/power
   description: Turn on a light/power when motion is detected.
   domain: automation
-  source_url: https://github.com/viskor/HomeAssistantVK/blob/main/Motion-light-power.yaml
+  source_url: https://github.com/viskor/HomeAssistantVK/blob/main/VKMotion-light-power.yaml
   input:
     motion_entity:
       name: Motion Sensor
