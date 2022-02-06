@@ -100,7 +100,7 @@ action:
       until:
          # Did it work?
          - condition: state
-            entity_id: !input contact_sensor
-            state: "off"
+           entity_id: !input contact_sensor
+           state: 'off'
 
 Mode: single
