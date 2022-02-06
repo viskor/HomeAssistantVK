@@ -112,3 +112,5 @@ action:
 #  {{trigger.to_state.attributes.friendly_name}}
 
 mode: single
+#if repeat : mode: restart
+
