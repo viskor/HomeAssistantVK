@@ -7,7 +7,6 @@ blueprint:
     motion_entity:
       name: Motion Sensor
       selector:
-        target:
           entity:
             domain: binary_sensor
             device_class: motion
