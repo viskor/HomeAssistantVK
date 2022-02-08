@@ -9,7 +9,7 @@ blueprint:
   name: VK Motion-activated & time switch
   description: Turn on a switch when motion is detected.
   domain: automation
-  source_url: https://github.com/viskor/HomeAssistantVK/blob/main/VKMotion-time-power.yaml
+  source_url: https://github.com/viskor/HomeAssistantVK/blob/main/VKMotion-time-power2.yaml
   input:
     motion_entity:
       name: Motion Sensor
