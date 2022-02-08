@@ -1,4 +1,8 @@
 # Motion open power swithc in time.
+# MultipleSwitch OK
+# 1 motion sensor OK
+# Multiple motion sensor
+# Select Day must include : https://community.home-assistant.io/t/blueprint-conditions-with-week-day-selection/278881/4
 
 blueprint:
   name: VK Motion-activated &time switch
@@ -57,6 +61,8 @@ condition:
       - wed
       - thu
       - fri
+      - sat
+      - sun
 
 action:
   - alias: "Turn on the switch"
