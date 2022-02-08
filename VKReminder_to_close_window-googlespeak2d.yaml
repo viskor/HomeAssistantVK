@@ -11,6 +11,7 @@
 #
 # requierement : Home Meteorologisk institutt (Met.no) > name of house : maison (Line 93)
 # now: only windows mode
+# in progress: repeat mode
 
 blueprint:
   name: VK Speaker to Close a Window
