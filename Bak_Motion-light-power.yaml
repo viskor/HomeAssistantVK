@@ -1,8 +1,11 @@
+# This file is not uptodate (New name of this bp is VKMotion-switch > https://github.com/viskor/HomeAssistantVK/blob/main/VKMotion-switch.yaml )
+# This file is only adapt of : https://github.com/home-assistant/core/blob/dev/homeassistant/components/automation/blueprints/motion_light.yaml
+#
 blueprint:
   name: Motion-activated switch
   description: Turn on a switch when motion is detected.
   domain: automation
-  source_url: https://github.com/viskor/HomeAssistantVK/blob/main/VKMotion-switch.yaml
+  source_url: https://github.com/viskor/HomeAssistantVK/blob/main/Bak_Motion-light-power.yaml
   input:
     motion_entity:
       name: Motion Sensor
