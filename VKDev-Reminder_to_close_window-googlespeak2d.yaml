@@ -23,7 +23,6 @@ blueprint:
       name: Contact Sensor
       description: 'The window or door sensor that triggers the automation.'
       selector: 
-        target:
           entity:
             domain: binary_sensor
             device_class: window    
@@ -31,7 +30,6 @@ blueprint:
       name: Contact Sensor2
       description: 'The window or door sensor that triggers the automation.'
       selector: 
-        target:
           entity:
             domain: binary_sensor
             device_class: window
