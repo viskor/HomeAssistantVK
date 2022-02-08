@@ -102,9 +102,9 @@ condition:
 
 # Send a notification to the speaker device. 
 action:
-  - alias: 
-      repeat:
-      sequence:
+   #- alias: 
+    #   repeat:
+     #  sequence:
         # Run command that for some reason doesn't always work
         - service: tts.google_translate_say
           data:
@@ -113,15 +113,15 @@ action:
           message: "wesh"
           language: "fr"
           # Give it time to complete
-        - delay:
-          milliseconds: 1000
-      until:
+  #       - delay:
+   #        milliseconds: 1000
+  #     until:
          # Did it work?
-         - condition: state
-           entity_id: !input contact_sensor
-           state: 'off'
-         - condition: state
-           entity_id: !input contact_sensor2
-           state: 'off'
+   #       - condition: state
+   #         entity_id: !input contact_sensor
+   #         state: 'off'
+  #        - condition: state
+ #           entity_id: !input contact_sensor2
+  #          state: 'off'
 
 Mode: single
