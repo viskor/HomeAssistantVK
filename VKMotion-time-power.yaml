@@ -1,7 +1,7 @@
 # Motion open power swithc in time.
 # MultipleSwitch OK
 # 1 motion sensor OK
-# Auto-off at time (in progress)
+# Auto-off at time (another file to test)
 # Multiple motion sensor NOK (another file to test)
 # Select Day must include : https://community.home-assistant.io/t/blueprint-conditions-with-week-day-selection/278881/4
 
