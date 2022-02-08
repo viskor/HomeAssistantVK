@@ -12,15 +12,23 @@
 # requierement : Home Meteorologisk institutt (Met.no) > name of house : maison (Line 93)
 # now: only windows mode
 # in progress: repeat mode
+# in progress: Multiple sensor
 
 blueprint:
   name: VK Speaker to Close a Window
   description: speak to close windows if it is cold outside
   domain: automation
   input: 
-    
     contact_sensor: 
       name: Contact Sensor
+      description: 'The window or door sensor that triggers the automation.'
+      selector: 
+        target:
+          entity:
+            domain: binary_sensor
+            device_class: window    
+    contact_sensor2: 
+      name: Contact Sensor2
       description: 'The window or door sensor that triggers the automation.'
       selector: 
         target:
@@ -30,7 +38,7 @@ blueprint:
     first_timer:
       name: 'First timer'
       description: 'The first notification timer (in minutes).'
-      default: 10
+      default: 5
       selector: 
         number:
           min: 0
@@ -69,7 +77,15 @@ trigger:
   for:
     hours: 0
     minutes: !input first_timer
-    seconds: 10
+    seconds: 0
+- platform: state
+  entity_id: !input contact_sensor2
+  from: 'off'
+  to: 'on'
+  for:
+    hours: 0
+    minutes: !input first_timer
+    seconds: 0
 
 # Two conditions:
 # 1. The door or window should still be open. 
@@ -102,6 +118,9 @@ action:
          # Did it work?
          - condition: state
            entity_id: !input contact_sensor
+           state: 'off'
+         - condition: state
+           entity_id: !input contact_sensor2
            state: 'off'
 
 Mode: single
