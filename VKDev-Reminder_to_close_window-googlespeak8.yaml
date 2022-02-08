@@ -12,7 +12,7 @@
 # requierement : Home Meteorologisk institutt (Met.no) > name of house : maison (Line 93)
 
 blueprint:
-  name: VK Speaker to Close a Window ( v7)
+  name: VK Speaker to Close a Window ( v8)
   description: speak to close windows if it is cold outside
   domain: automation
   input: 
