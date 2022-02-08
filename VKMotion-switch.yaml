@@ -1,3 +1,7 @@
+# This file is not uptodate 
+# This file is only adapt of : https://github.com/home-assistant/core/blob/dev/homeassistant/components/automation/blueprints/motion_light.yaml
+# New BP have time condition for activation
+
 blueprint:
   name: Motion-activated switch
   description: Turn on a switch when motion is detected.
