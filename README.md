@@ -18,3 +18,7 @@ For Heating systeme, i have a NETATMO and he work with the "Window open, climate
 
 But no notification was send so i adapt a script (of Home OIT) for use google assistant chromecast
 VK Reminder to close windows-speaker : https://github.com/viskor/HomeAssistantVK/blob/main/Reminder_to_close_window-googlespeak.yaml
+
+Next upgrade for blueprint: 
+- VKMotionTime : Auto off light at time2 or time 1, Multiple sensor selection, selection of day of week   
+- VKReminder : Create a repeat mode with 1 timer
