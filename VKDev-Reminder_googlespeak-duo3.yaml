@@ -12,7 +12,7 @@
 # requierement : Home Meteorologisk institutt (Met.no) > name of house : maison (Line 93)
 
 blueprint:
-  name: DEV-VK Reminder googlespeak (v2)
+  name: DEV-VK Reminder googlespeak (v3)
   description: speak to close windows if it is cold outside
   domain: automation
   input: 
@@ -60,11 +60,11 @@ blueprint:
         entity:
           domain: media_player
 #add repeat   
-    repeat:
-      name: repeter
-      description: Repeter le message
-      selector:
-        boolean:
+#    repeat:
+#      name: repeter
+#      description: Repeter le message
+#      selector:
+#        boolean:
     
 
 # We will have two triggers, for the two different reminders. 
@@ -117,40 +117,4 @@ action:
     message: "wesh wesh"
    #   message: "Fenetre ouverte {{trigger.to_state.attributes.friendly_name}}"
     language: "fr"
-# Add repeat    
-- alias: "repeat"
-  choose:
-    # IF motion detected
-    - alias: "repeter"
-      conditions: "{{ !input repeat == 'true' }}"
-      sequence:
-        trigger:
-        - platform: state
-          entity_id: !input contact_sensor
-          from: 'off'
-          to: 'on'
-          for:
-            hours: 0
-            minutes: !input first_timer
-            seconds: 10
-        - platform: state
-          entity_id: !input contact_sensor2
-          from: 'off'
-          to: 'on'
-          for:
-            hours: 0
-            minutes: !input first_timer
-            seconds: 10
-  # ELSE (i.e., motion stopped)
-  default:
-    - service: tts.google_translate_say
-      data:
-        entity_id: !input speaker
-        message: "besh mesh"
-        language: "fr"
-#   message: "Fenetre ouverte {{trigger.to_state.attributes.friendly_name}}"
-    
-
-
-
-mode: single
+    mode: restart
