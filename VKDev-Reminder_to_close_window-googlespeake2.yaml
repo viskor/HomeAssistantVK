@@ -86,16 +86,22 @@ trigger:
 # 1. The door or window should still be open. 
 # 2. The temperature reading must be below the set value. 
 condition:
-- condition: state
-  entity_id: !input contact_sensor
-  state: 'on'
-- condition: state
-  entity_id: !input contact_sensor2
-  state: 'on'
-- condition: numeric_state
-  entity_id: weather.maison
-  attribute: temperature
-  below: !input temperature
+  condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: weather.maison
+        attribute: temperature
+        below: !input temperature
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: !input contact_sensor
+          state: 'on'
+        - condition: state
+          entity_id: !input contact_sensor2
+          state: 'on'
+  
+  
 
 # Send a notification to the speaker device. 
 action:
