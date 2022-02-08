@@ -102,11 +102,11 @@ condition:
 # Send a notification to the speaker device. 
 action:
 - alias : "test"
-  - service: tts.google_translate_say
-    data:
-      entity_id: !input speaker
-      message: "Fenetre ouverte {{trigger.to_state.attributes.friendly_name}}"
-      language: "fr"
+  service: tts.google_translate_say
+  data:
+    entity_id: !input speaker
+    message: "Fenetre ouverte {{trigger.to_state.attributes.friendly_name}}"
+    language: "fr"
 
 
 
