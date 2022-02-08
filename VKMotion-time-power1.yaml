@@ -1,7 +1,8 @@
 # Motion open power swithc in time.
+# Time to activate work
 # MultipleSwitch OK
 # 1 motion sensor OK
-# Multiple motion sensor
+# Multiple motion sensor (target not work)
 # Select Day must include : https://community.home-assistant.io/t/blueprint-conditions-with-week-day-selection/278881/4
 
 blueprint:
@@ -13,7 +14,6 @@ blueprint:
     motion_entity:
       name: Motion Sensor
       selector:
-        target:
           entity:
             domain: binary_sensor
             device_class: motion
