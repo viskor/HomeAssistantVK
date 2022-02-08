@@ -92,6 +92,9 @@ condition:
 - condition: state
   entity_id: !input contact_sensor
   state: 'on'
+- condition: state
+  entity_id: !input contact_sensor2
+  state: 'on'
 - condition: numeric_state
   entity_id: weather.maison
   attribute: temperature
