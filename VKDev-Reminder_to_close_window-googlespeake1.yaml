@@ -12,12 +12,19 @@
 # requierement : Home Meteorologisk institutt (Met.no) > name of house : maison (Line 93)
 
 blueprint:
-  name: VK Speaker to Close a Window ( v9)
+  name: VK Speaker to Close a Window (a v1)
   description: speak to close windows if it is cold outside
   domain: automation
   input: 
     contact_sensor: 
       name: Contact Sensor
+      description: 'The window or door sensor that triggers the automation.'
+      selector: 
+        entity:
+          domain: binary_sensor
+          device_class: window
+    contact_sensor2: 
+      name: Contact Sensor2
       description: 'The window or door sensor that triggers the automation.'
       selector: 
         entity:
@@ -65,6 +72,14 @@ trigger:
     hours: 0
     minutes: !input first_timer
     seconds: 10
+- platform: state
+  entity_id: !input contact_sensor2
+  from: 'off'
+  to: 'on'
+  for:
+    hours: 0
+    minutes: !input first_timer
+    seconds: 10
 
 
 # Two conditions:
@@ -73,6 +88,9 @@ trigger:
 condition:
 - condition: state
   entity_id: !input contact_sensor
+  state: 'on'
+- condition: state
+  entity_id: !input contact_sensor2
   state: 'on'
 - condition: numeric_state
   entity_id: weather.maison
