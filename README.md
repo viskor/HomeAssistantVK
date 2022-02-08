@@ -16,9 +16,12 @@ For an integration with Start and stop hour (like 20h00 > 8h00 or 18h> 23h)
 For Heating systeme, i have a NETATMO and he work with the "Window open, climate off" ( https://community.home-assistant.io/t/window-open-climate-off/257293 ) 
 
 
-But no notification was send so i adapt a script (of Home OIT) for use google assistant chromecast
-VK Reminder to close windows-speaker : https://github.com/viskor/HomeAssistantVK/blob/main/Reminder_to_close_window-googlespeak.yaml
+But no notification was send so i adapt a script (of Home OIT) for use google assistant chromecast:
+
+VK Reminder to close windows-speaker mono window sensor: https://github.com/viskor/HomeAssistantVK/blob/main/VK-Reminder_googlespeak-mono.yaml
+VK Reminder to close windows-speaker duo window sensor: https://github.com/viskor/HomeAssistantVK/blob/main/VK-Reminder_googlespeak-duo.yaml
+
 
 Next upgrade for blueprint: 
 - VKMotionTime : Auto off light at time2 or time 1, Multiple sensor selection, selection of day of week   
-- VKReminder : Create a repeat mode with 1 timer, multiple sensor selection
+- VKReminder : Create a repeat mode with 1 timer
