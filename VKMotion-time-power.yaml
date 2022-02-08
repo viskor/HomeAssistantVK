@@ -18,6 +18,14 @@ blueprint:
         target:
           entity:
             domain: switch
+    time1:
+      name: time1
+      selector:
+        time:
+    time2:
+      name: time2
+      selector:
+        time:
     no_motion_wait:
       name: Wait time
       description: Time to leave the light on after last motion is detected.
@@ -41,8 +49,8 @@ trigger:
   
 condition:
   - condition: time
-    after: '06:31'
-    before: '08:00'
+    after: !input time1
+    before: !input time2
     weekday:
       - mon
       - tue
