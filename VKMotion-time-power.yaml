@@ -1,8 +1,10 @@
+# Motion open power swithc in time.
+
 blueprint:
   name: VK Motion-activated &time switch
   description: Turn on a switch when motion is detected.
   domain: automation
-  source_url: https://github.com/viskor/HomeAssistantVK/blob/main/VKMotion-switch.yaml
+  source_url: https://github.com/viskor/HomeAssistantVK/blob/main/VKMotion-time-power.yaml
   input:
     motion_entity:
       name: Motion Sensor
@@ -36,6 +38,17 @@ trigger:
   entity_id: !input motion_entity
   from: "off"
   to: "on"
+  
+condition:
+  - condition: time
+    after: '06:31'
+    before: '08:00'
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
 
 action:
   - alias: "Turn on the switch"
