@@ -21,4 +21,4 @@ VK Reminder to close windows-speaker : https://github.com/viskor/HomeAssistantVK
 
 Next upgrade for blueprint: 
 - VKMotionTime : Auto off light at time2 or time 1, Multiple sensor selection, selection of day of week   
-- VKReminder : Create a repeat mode with 1 timer
+- VKReminder : Create a repeat mode with 1 timer, multiple sensor selection
