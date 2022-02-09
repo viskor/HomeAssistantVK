@@ -19,7 +19,7 @@
 # requierement : Home Meteorologisk institutt (Met.no) > name of house : maison (Line 93)
 
 blueprint:
-  name: DEV VK Speaker to Close a Window (v12)
+  name: DEV VK Speaker to Close a Window (v13)
   description: speak to close windows if it is cold outside
   domain: automation
   input: 
@@ -73,8 +73,7 @@ blueprint:
 trigger:
 - platform: state
   entity_id: !input contact_sensor
-  from: 'off'
-  to: 'on'
+  state: 'on'
   for:
     hours: 0
     minutes: !input first_timer
