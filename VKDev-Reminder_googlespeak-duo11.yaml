@@ -1,4 +1,11 @@
-#
+
+#add repeat   
+#    repeat:
+#      name: repeter
+#      description: Repeter le message
+#      selector:
+#        boolean:
+    #
 # Home Assistant Automation Blueprint
 #
 # Sends two notifications on speaker to close a window or door after opening it, 
@@ -12,7 +19,7 @@
 # requierement : Home Meteorologisk institutt (Met.no) > name of house : maison (Line 93)
 
 blueprint:
-  name: DEV-VK Reminder googlespeak (v10)
+  name: DEV VK Speaker to Close a Window (v11)
   description: speak to close windows if it is cold outside
   domain: automation
   input: 
@@ -59,13 +66,7 @@ blueprint:
       selector: 
         entity:
           domain: media_player
-#add repeat   
-#    repeat:
-#      name: repeter
-#      description: Repeter le message
-#      selector:
-#        boolean:
-    
+      
 
 # We will have two triggers, for the two different reminders. 
 # However, a reminder will be ignored if the door or window is already closed by then. 
@@ -77,7 +78,7 @@ trigger:
   for:
     hours: 0
     minutes: !input first_timer
-    seconds: 10
+    seconds: 5
 - platform: state
   entity_id: !input contact_sensor2
   from: 'off'
@@ -85,7 +86,7 @@ trigger:
   for:
     hours: 0
     minutes: !input first_timer
-    seconds: 10
+    seconds: 5
 
 
 # Two conditions:
@@ -111,15 +112,12 @@ condition:
 
 # Send a notification to the speaker device. 
 action:
-  - alias: "Repeat the sequence UNTIL the conditions are true"
-    sequence: 
-    - service: tts.google_translate_say
-      data:
-        entity_id: !input speaker
-        message: "chat"
-       #   message: "Fenetre ouverte {{trigger.to_state.attributes.friendly_name}}"
-        language: "fr"
-
-      
+- service: tts.google_translate_say
+  data:
+    entity_id: !input speaker
+    message: "chat"
+    # message: "Fenetre ouverte {{trigger.to_state.attributes.friendly_name}}"
+    language: "fr"
+#  {{trigger.to_state.attributes.friendly_name}}
 
 mode: single
