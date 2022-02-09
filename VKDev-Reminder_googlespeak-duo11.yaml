@@ -120,4 +120,5 @@ action:
     language: "fr"
 #  {{trigger.to_state.attributes.friendly_name}}
 
-mode: single
+mode: restart
+#mode: single
