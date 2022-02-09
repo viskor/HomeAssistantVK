@@ -12,7 +12,7 @@
 # requierement : Home Meteorologisk institutt (Met.no) > name of house : maison (Line 93)
 
 blueprint:
-  name: DEV-VK Reminder googlespeak (v7)
+  name: DEV-VK Reminder googlespeak (v8)
   description: speak to close windows if it is cold outside
   domain: automation
   input: 
@@ -117,11 +117,11 @@ action:
       - service: tts.google_translate_say
         data:
           entity_id: !input speaker
-          message: "wesh wesh"
+          message: "wesh"
          #   message: "Fenetre ouverte {{trigger.to_state.attributes.friendly_name}}"
           language: "fr"
       - delay:
-        milliseconds: 5000
+        milliseconds: 500
       until:
         # Did it work?
         - condition: and
