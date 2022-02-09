@@ -117,9 +117,11 @@ action:
       - service: tts.google_translate_say
         data:
           entity_id: !input speaker
-          message: "wesh wesh"
+          message: "chat"
          #   message: "Fenetre ouverte {{trigger.to_state.attributes.friendly_name}}"
           language: "fr"
+      - delay:
+        milliseconds: 200
       until:
         # Did it work?
         - condition: and
