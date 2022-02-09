@@ -12,7 +12,7 @@
 # requierement : Home Meteorologisk institutt (Met.no) > name of house : maison (Line 93)
 
 blueprint:
-  name: DEV-VK Reminder googlespeak (v4)
+  name: DEV-VK Reminder googlespeak (vqsdqsd)
   description: speak to close windows if it is cold outside
   domain: automation
   input: 
