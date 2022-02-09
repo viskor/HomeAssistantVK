@@ -128,10 +128,10 @@ action:
           conditions:
           - condition: state
             entity_id: !input contact_sensor
-            state: 'on'
+            state: 'off'
           - condition: state
             entity_id: !input contact_sensor2
-            state: 'on'
+            state: 'off'
 
 
 mode: single
