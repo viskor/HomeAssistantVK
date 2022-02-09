@@ -117,4 +117,6 @@ action:
     message: "wesh wesh"
    #   message: "Fenetre ouverte {{trigger.to_state.attributes.friendly_name}}"
     language: "fr"
-    mode: restart
+
+
+mode: single
