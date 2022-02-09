@@ -120,6 +120,8 @@ action:
           message: "wesh wesh"
          #   message: "Fenetre ouverte {{trigger.to_state.attributes.friendly_name}}"
           language: "fr"
+          - delay:
+                milliseconds: 2000
       until:
         # Did it work?
         - condition: and
