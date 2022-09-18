@@ -1,5 +1,5 @@
 blueprint:
-  name: VK- Door open TTS announcer v2
+  name: VK- Door open TTS announcer v3
   description: speak to close windows if it is cold outside
   domain: automation
   input:
