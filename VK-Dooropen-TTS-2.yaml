@@ -1,5 +1,6 @@
 blueprint:
-  name: VK- Door open TTS announcer v1
+  name: VK- Door open TTS announcer v2
+  description: speak to close windows if it is cold outside
   domain: automation
   input:
     door_entity:
@@ -31,6 +32,17 @@ blueprint:
           min: 0
           max: 600
           unit_of_measurement: seconds
+          
+    temperature:
+      name: 'Temperature'
+      description: 'The outside temperature below which the notification should be sent.'
+      default: 20
+      selector: 
+        number:
+          min: 0
+          step: 1
+          max: 25
+          mode: slider
 
 mode: single
 
@@ -39,6 +51,12 @@ trigger:
   entity_id: !input door_entity
   from: "off"
   to: "on"
+
+conditions:
+    - condition: numeric_state
+      entity_id: weather.maison
+      attribute: temperature
+      below: !input temperature
 
 action:
   - alias: Repeat the sequence UNTIL the door is closed
