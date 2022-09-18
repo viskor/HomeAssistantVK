@@ -1,5 +1,5 @@
 blueprint:
-  name: VK- Door open TTS announcer v3
+  name: VK - Door open TTS announcer v3
   description: speak to close windows if it is cold outside
   domain: automation
   input:
@@ -51,7 +51,7 @@ trigger:
   from: "off"
   to: "on"
 
-conditions:
+condition:
   - condition: numeric_state
     entity_id: weather.maison
     attribute: temperature
