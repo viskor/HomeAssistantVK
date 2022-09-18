@@ -1,5 +1,5 @@
 blueprint:
-  name: Door open TTS announcer
+  name: VK- Door open TTS announcer v1
   domain: automation
   input:
     door_entity:
