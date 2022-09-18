@@ -32,7 +32,6 @@ blueprint:
           min: 0
           max: 600
           unit_of_measurement: seconds
-          
     temperature:
       name: 'Temperature'
       description: 'The outside temperature below which the notification should be sent.'
@@ -53,10 +52,10 @@ trigger:
   to: "on"
 
 conditions:
-    - condition: numeric_state
-      entity_id: weather.maison
-      attribute: temperature
-      below: !input temperature
+  - condition: numeric_state
+    entity_id: weather.maison
+    attribute: temperature
+    below: !input temperature
 
 action:
   - alias: Repeat the sequence UNTIL the door is closed
