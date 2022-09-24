@@ -1,15 +1,15 @@
 blueprint:
-  name: VK - Door open TTS announcer v4
+  name: VK - Still open TTS announcer v5
   description: speak to close windows if it is cold outside, refork of https://community.home-assistant.io/t/garage-door-open-tts-announcer-reminder-google-translate-say/365197
   domain: automation
   input:
-    monitored_entity:
-      name: Door Sensor
+    sensor_entity:
+      name: Door/window Sensor
       description: Entity that causes announcement
       selector:
         entity:
           domain: binary_sensor
-          device_class: door
+          device_class: 
     speaker_target:
       name: Speaker
       description: Entity to announce event on
@@ -48,7 +48,7 @@ blueprint:
 mode: single
 trigger:
   platform: state
-  entity_id: !input 'monitored_entity'
+  entity_id: !input 'sensor_entity'
   from: 'off'
   to: 'on'
   
@@ -68,13 +68,13 @@ action:
         message: !input 'announcement_message'
     - wait_for_trigger:
       - platform: state
-        entity_id: !input 'monitored_entity'
+        entity_id: !input 'sensor_entity'
         to: 'off'
         for: 10
       timeout:  !input 'cooldown'
     until:
     - condition: state
-      entity_id: !input 'monitored_entity'
+      entity_id: !input 'sensor_entity'
       state: 'off'
 - service: tts.google_translate_say
   target: !input 'speaker_target'
