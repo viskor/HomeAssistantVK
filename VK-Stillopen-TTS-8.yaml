@@ -1,5 +1,5 @@
 blueprint:
-  name: VK - Still open TTS announcer v7
+  name: VK - Still open TTS announcer v8
   description: speak to close windows if it is cold outside, refork of https://community.home-assistant.io/t/garage-door-open-tts-announcer-reminder-google-translate-say/365197
   domain: automation
   input:
