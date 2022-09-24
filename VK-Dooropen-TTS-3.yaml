@@ -1,6 +1,6 @@
 blueprint:
   name: VK - Door open TTS announcer v3
-  description: speak to close windows if it is cold outside
+  description: speak to close windows if it is cold outside - bug porte ouverte alors que déjà fermer, résolu avec le V4 et +
   domain: automation
   input:
     door_entity:
