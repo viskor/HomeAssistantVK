@@ -1,0 +1,82 @@
+blueprint:
+  name: VK - Window open TTS announcer v5
+  description: speak to close windows if it is cold outside, refork of https://community.home-assistant.io/t/garage-door-open-tts-announcer-reminder-google-translate-say/365197
+  domain: automation
+  input:
+    sensor_entity:
+      name: Door Sensor
+      description: Entity that causes announcement
+      selector:
+        entity:
+          domain: binary_sensor
+          device_class: window
+    speaker_target:
+      name: Speaker
+      description: Entity to announce event on
+      selector:
+        target:
+          entity:
+            domain: media_player
+    announcement_message:
+      name: Announcement message
+      description: What to say when door is opened
+    final_message:
+      name: Final message
+      description: What to say when door is closed
+    cooldown:
+      name: Announcement cooldown
+      description: The minimum time needed in between announcements
+      default: 10
+      selector:
+        number:
+          min: 0.0
+          max: 600.0
+          unit_of_measurement: seconds
+          mode: slider
+          step: 1.0
+    temperature:
+      name: 'Temperature'
+      description: 'The outside temperature below which the notification should be sent.'
+      default: 20
+      selector: 
+        number:
+          min: 0
+          step: 1
+          max: 25
+          mode: slider
+  source_url: https://github.com/viskor/HomeAssistantVK/blob/main/VK-Dooropen-TTS-3.yaml
+mode: single
+trigger:
+  platform: state
+  entity_id: !input 'sensor_entity'
+  from: 'off'
+  to: 'on'
+  
+condition:
+  - condition: numeric_state
+    entity_id: weather.maison
+    attribute: temperature
+    below: !input temperature
+    
+action:
+- alias: Repeat the sequence UNTIL the door is closed
+  repeat:
+    sequence:
+    - service: tts.google_translate_say
+      target: !input 'speaker_target'
+      data:
+        message: !input 'announcement_message'
+    - wait_for_trigger:
+      - platform: state
+        entity_id: !input 'sensor_entity'
+        to: 'off'
+        for: 10
+      timeout:  !input 'cooldown'
+    until:
+    - condition: state
+      entity_id: !input 'sensor_entity'
+      state: 'off'
+- service: tts.google_translate_say
+  target: !input 'speaker_target'
+  data:
+    message: !input 'final_message'
