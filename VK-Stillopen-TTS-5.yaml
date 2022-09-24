@@ -8,8 +8,10 @@ blueprint:
       description: Entity that causes announcement
       selector:
         entity:
-          domain: binary_sensor
-          device_class: 
+          - domain: binary_sensor
+            device_class: door
+          - domain: binary_sensor
+            device_class: window
     speaker_target:
       name: Speaker
       description: Entity to announce event on
