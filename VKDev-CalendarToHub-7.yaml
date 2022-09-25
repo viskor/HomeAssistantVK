@@ -1,5 +1,5 @@
 blueprint:
-  name: VK Dev - Calendar To Hub v6
+  name: VK Dev - Calendar To Hub v7
   description: Basé sur https://www.home-assistant.io/integrations/google/ Envois de musique sur google hub
   domain: automation
   input:
@@ -43,16 +43,7 @@ blueprint:
         target:
           entity:
             domain: media_player
-    start_time:
-      name: Heure de début d'événement doit etre apres :
-      description: Time action should start
-      selector:
-        time:
-    end_time:
-      name: Heure de début d'événement doit etre apres :
-      description: Time action should stop
-      selector:
-        time:
+    
 mode: single
 
 trigger:
