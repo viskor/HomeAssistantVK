@@ -1,5 +1,5 @@
 blueprint:
-  name: VK Dev - Calendar To Hub v9
+  name: VK Dev - Calendar To Hub v10
   description: Basé sur https://www.home-assistant.io/integrations/google/ Envois de musique sur google hub
   domain: automation
   input:
@@ -55,7 +55,20 @@ blueprint:
         target:
           entity:
             domain: media_player
-    
+    media_list:
+      name: Spotify Accounts
+      description: Spotify Accounts list (ordere list, 1st one is checked first) for Spotify which could use for playing music
+      default: {entity_id: []}
+      selector:
+        target:
+          entity:
+            integration: spotify
+    media_content:
+      name: Media Content as Input Text
+      description: The media content url for spotify, can be playlist album, or track fron a previously populated input_text helper
+      selector:
+        entity:
+          domain: input_text
 mode: single
 
 trigger:
