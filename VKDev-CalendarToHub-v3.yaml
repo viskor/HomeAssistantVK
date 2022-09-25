@@ -1,5 +1,5 @@
 blueprint:
-  name: VK Dev - Calendar To Hub v2
+  name: VK Dev - Calendar To Hub v3
   description: Basé sur https://www.home-assistant.io/integrations/google/ Envois de musique sur google hub
   domain: automation
   input:
