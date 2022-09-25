@@ -4,38 +4,10 @@ blueprint:
   domain: automation
   input:
     calendar_sensor:
-      name: Calendar Sensor
+      name: Calendrier à observer
       selector:
         entity:
           domain: calendar
-    timebefore:
-      name: Timer for calendar
-      description: The minimum time needed in between announcements
-      default: 10
-      selector:
-        number:
-          min: 0.0
-          max: 600.0
-          unit_of_measurement: seconds
-          mode: slider
-          step: 1.0
-    speaker_target:
-      name: Speaker
-      description: Entity to announce event on
-      selector:
-        target:
-          entity:
-            domain: media_player
-    start_time:
-      name: Start Time
-      description: Time action should start
-      selector:
-        time:
-    end_time:
-      name: End Time
-      description: Time action should stop
-      selector:
-        time:
     weekday:
       name: Day of the week to use the Automation
       default: [mon, tue, wed, thu, fri, sat, sun]
@@ -58,12 +30,47 @@ blueprint:
             value: sun
           custom_value: false
           multiple: true
+    timebefore:
+      name: Timer for calendar
+      description: The minimum time needed in between announcements
+      default: 10
+      selector:
+        number:
+          min: 0.0
+          max: 600.0
+          unit_of_measurement: seconds
+          mode: slider
+          step: 1.0
+    speaker_target:
+      name: Speaker
+      description: Entity to announce event on
+      selector:
+        target:
+          entity:
+            domain: media_player
+    start_time:
+      name: Heure de début d'événement doit etre apres :
+      description: Time action should start
+      selector:
+        time:
+    end_time:
+      name: Heure de début d'événement doit etre apres :
+      description: Time action should stop
+      selector:
+        time:
+
 mode: single
 trigger:
   - platform: calendar
     event: start
     offset: "-1:30:0"
     entity_id: !input calendar_sensor
+  - platform: time
+    at: !input start_time
+    id: "start_trigger"
+  - platform: time
+    at: !input end_time
+    id: "end_trigger"
     
 condition:
   - condition: time
