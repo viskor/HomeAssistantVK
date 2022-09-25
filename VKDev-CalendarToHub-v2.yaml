@@ -1,5 +1,5 @@
 blueprint:
-  name: VK Dev - Calendar To Hub v1
+  name: VK Dev - Calendar To Hub v2
   description: Basé sur https://www.home-assistant.io/integrations/google/ Envois de musique sur google hub
   domain: automation
   input:
@@ -35,12 +35,10 @@ blueprint:
       description: The minimum time needed in between announcements
       default: 10
       selector:
-        number:
-          min: 0.0
-          max: 600.0
-          unit_of_measurement: seconds
-          mode: slider
-          step: 1.0
+        default: 01:00:00
+        selector:
+          duration:
+      
     speaker_target:
       name: Speaker
       description: Entity to announce event on
@@ -72,21 +70,10 @@ trigger:
     at: !input end_time
     id: "end_trigger"
     
-condition:
-  - condition: time
-    after: "05:00:00"
-    before: "10:00:00"
-    weekday:
-      - mon
-      - tue
-      - wed
-      - fri
-      - thu
-      - sat
-      - sun
-    enabled: true
+
     
 action:
+
   - service: media_player.play_media
     target:
       entity_id: media_player.mismartclock8338
