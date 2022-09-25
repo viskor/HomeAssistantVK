@@ -1,5 +1,5 @@
 blueprint:
-  name: VK Dev - Calendar To Hub v10
+  name: VK Dev - Calendar To Hub v11
   description: Basé sur https://www.home-assistant.io/integrations/google/ Envois de musique sur google hub
   domain: automation
   input:
@@ -46,8 +46,6 @@ blueprint:
       default: 1:00:00
       selector:
         duration:
-          hours: 1
-          minutes: 30
     speaker_target:
       name: Speaker
       description: Entity to announce event on
