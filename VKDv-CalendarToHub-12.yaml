@@ -1,5 +1,5 @@
 blueprint:
-  name: VK Dev - Calendar To Hub v11
+  name: VK Dev - Calendar To Hub v12
   description: Basé sur https://www.home-assistant.io/integrations/google/ Envois de musique sur google hub
   domain: automation
   input:
@@ -65,8 +65,7 @@ blueprint:
       name: Media Content as Input Text
       description: The media content url for spotify, can be playlist album, or track fron a previously populated input_text helper
       selector:
-        entity:
-          domain: input_text
+        media:
 mode: single
 
 trigger:
