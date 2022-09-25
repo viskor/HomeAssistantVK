@@ -2,3 +2,108 @@ blueprint:
   name: VK Dev - Calendar To Hub v1
   description: Basé sur https://www.home-assistant.io/integrations/google/ Envois de musique sur google hub
   domain: automation
+  input:
+    calendar_sensor:
+      name: Calendar Sensor
+      selector:
+        entity:
+          domain: calendar
+    timebefore:
+      name: Timer for calendar
+      description: The minimum time needed in between announcements
+      default: 10
+      selector:
+        number:
+          min: 0.0
+          max: 600.0
+          unit_of_measurement: seconds
+          mode: slider
+          step: 1.0
+    speaker_target:
+      name: Speaker
+      description: Entity to announce event on
+      selector:
+        target:
+          entity:
+            domain: media_player
+    start_time:
+      name: Start Time
+      description: Time action should start
+      selector:
+        time:
+    end_time:
+      name: End Time
+      description: Time action should stop
+      selector:
+        time:
+    weekday:
+      name: Day of the week to use the Automation
+      default: [mon, tue, wed, thu, fri, sat, sun]
+      selector:
+        select:
+          options:
+          - label: Monday
+            value: mon
+          - label: Tuesday
+            value: tue
+          - label: Wednesday
+            value: wed
+          - label: Thursday
+            value: thu
+          - label: Friday
+            value: fri
+          - label: Saturday
+            value: sat
+          - label: Sunday
+            value: sun
+          custom_value: false
+          multiple: true
+mode: single
+trigger:
+  - platform: calendar
+    event: start
+    offset: "-1:30:0"
+    entity_id: !input calendar_sensor
+    
+condition:
+  - condition: time
+    after: "05:00:00"
+    before: "10:00:00"
+    weekday:
+      - mon
+      - tue
+      - wed
+      - fri
+      - thu
+      - sat
+      - sun
+    enabled: true
+    
+action:
+  - service: media_player.play_media
+    target:
+      entity_id: media_player.mismartclock8338
+    data:
+      media_content_id: >-
+        spotify://122feef405d4590fc781e97d48a03eff/spotify:playlist:37i9dQZEVXbJNSeeHswcKB
+      media_content_type: spotify://playlist
+    metadata:
+      title: Top 50 - België
+      thumbnail: >-
+        https://charts-images.scdn.co/assets/locale_en/regional/daily/region_be_large.jpg
+      media_class: playlist
+      children_media_class: track
+      navigateIds:
+        - {}
+        - media_content_type: spotify://library
+          media_content_id: spotify://122feef405d4590fc781e97d48a03eff
+        - media_content_type: spotify://current_user_playlists
+          media_content_id: spotify://122feef405d4590fc781e97d48a03eff/current_user_playlists
+        - media_content_type: spotify://playlist
+          media_content_id: >-
+            spotify://122feef405d4590fc781e97d48a03eff/spotify:playlist:37i9dQZEVXbJNSeeHswcKB
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.69
+    target:
+      entity_id: media_player.mismartclock8338
