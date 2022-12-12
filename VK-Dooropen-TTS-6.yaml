@@ -1,5 +1,5 @@
 blueprint:
-  name: VK - Door open TTS announcer v5
+  name: VK - Door open TTS announcer v6
   description: speak to close windows if it is cold outside, refork of https://community.home-assistant.io/t/garage-door-open-tts-announcer-reminder-google-translate-say/365197
   domain: automation
   input:
@@ -51,6 +51,7 @@ trigger:
   entity_id: !input 'sensor_entity'
   from: 'off'
   to: 'on'
+  for: "01:10:05"
   
 condition:
   - condition: numeric_state
