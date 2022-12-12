@@ -34,6 +34,17 @@ blueprint:
           unit_of_measurement: seconds
           mode: slider
           step: 1.0
+    cooldown_since:
+      name: Since start
+      description: The time needed for the first launch
+      default: 10
+      selector:
+        number:
+          min: 0.0
+          max: 600.0
+          unit_of_measurement: seconds
+          mode: slider
+          step: 1.0
     temperature:
       name: 'Temperature'
       description: 'The outside temperature below which the notification should be sent.'
@@ -51,7 +62,7 @@ trigger:
   entity_id: !input 'sensor_entity'
   from: 'off'
   to: 'on'
-  for: "01:10:05"
+  for: !input 'cooldown_since'
   
 condition:
   - condition: numeric_state
